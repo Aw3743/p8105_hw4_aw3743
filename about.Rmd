@@ -1,0 +1,41 @@
+---
+title: "About Me"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+---
+![Aisha Waggeh](Aisha_profile_picture.pdf){width=50%}
+
+
+Hi, My name is **Aisha Waggeh**. I am an **MPH Candidate in Epidemiology** at Columbia University Mailman School of Public Health, pursuing a certificate in **Applied Biostatistics & Data Science**.
+
+I’m passionate about leveraging **real-world evidence (RWE)**, **machine learning**, and **epidemiologic methods** to advance drug safety, metabolic health, and chronic disease prevention. My work blends data storytelling with public health insight to drive actionable change.
+
+### Academic Background
+
+* MPH in Epidemiology, Columbia Mailman School of Public Health
+Certificate: Applied Biostatistics & Data Science
+* BA in Sociology (Public Health concentration), Brandeis University
+
+### Professional Experience
+Data Analyst Intern, TREAT Study – Columbia University Irving Medical Center
+
+* Conducted data analysis for a randomized clinical trial on time-restricted eating and cardiometabolic outcomes.
+* Evaluated relationships between sleep timing, chronotype, and adherence using R and SAS.
+
+### Interests
+I'm deeply interested in:
+
+* Women's health and global health equity
+* Digital health innovation and data-driven interventions
+* Applying machine learning to public health research
+
+### Let’s Connect
+📧 Email: aw3743@columbia.edu  
+💻 GitHub: [GitHub](https://github.com/Aw3743)  
+🔗 LinkedIn: [LinkedIn](https://www.linkedin.com/in/aishawaggeh)  
+📄 [View my résumé](Aisha_Waggeh_CV.pdf)
+
+

@@ -1,0 +1,14 @@
+name: "Aisha Waggeh"
+output_dir: "."
+navbar:
+  title: "Home"
+  right:
+    - text: "About"
+      href: about.html
+    - icon: fa-envelope fa-lg
+      href: mailto:aw3743@columbia.edu
+    - icon: fa-github fa-lg
+      href: https://github.com/Aw3743
+output:
+  html_document:
+    theme: cerulean
