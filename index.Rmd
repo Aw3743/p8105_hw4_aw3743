@@ -9,12 +9,13 @@ output:
 
 ## Welcome!
 
-Hi, I’m **Aisha Waggeh** — an MPH Candidate in Epidemiology at Columbia Mailman School of Public Health with a certificate in **Applied Biostatistics & Data Science**.  
+Hi, I'm **Aisha Waggeh** — an MPH Candidate in Epidemiology at Columbia Mailman School of Public Health with a certificate in **Applied Biostatistics & Data Science**.  
 
 I’m passionate about leveraging **real-world evidence (RWE)** and **machine learning** to uncover insights that improve **drug safety**, **metabolic health**, and **chronic disease prevention**.  
 
 Whether it’s analyzing **time-restricted eating patterns** or **decoding patient journeys**, I believe data should tell stories that drive **actionable change**.  
 
-You can also find me on [LinkedIn](https://www.linkedin.com/in/aishawaggeh) or check out my work on [GitHub](https://github.com/Aw3743).
+### Let's Connect
+[📧 Email](mailto:aw3743@columbia.edu) | [💼 LinkedIn](https://www.linkedin.com/in/aishawaggeh) | [💻 GitHub](https://github.com/Aw3743) | [📄 Résumé](Aisha_Waggeh_CV.pdf)
 
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+

@@ -38,4 +38,8 @@ I'm deeply interested in:
 🔗 LinkedIn: [LinkedIn](https://www.linkedin.com/in/aishawaggeh)  
 📄 [View my résumé](Aisha_Waggeh_CV.pdf)
 
+### Data Science Projects
 
+Check out my interactive analysis of Instacart shopping patterns:
+
+[View Instacart Dashboard](instacart_dashboard.html)

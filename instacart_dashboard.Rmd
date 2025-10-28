@@ -1,0 +1,148 @@
+---
+title: "Instacart Shopping Patterns"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    toc: true
+    toc_float: true
+    code_folding: hide  
+    theme: flatly
+    
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(plotly)
+library(p8105.datasets)
+
+# Load the Instacart data
+data("instacart")
+
+# Sample the data for manageability
+set.seed(123)
+instacart_sample <- instacart %>% 
+  sample_n(20000)
+
+```
+
+Column {data-width=650}
+-------------------------------------------------------------------------------------------------------------
+### About This Dashboard
+This dashboard explores shopping patterns from the Instacart Online Grocery Shopping Dataset.
+
+**Dataset**: 
+
+* 20,000 randomly sampled orders from the full Instacart dataset.
+
+**Variables Used**:
+
+* Order time (hour of day)
+* Day of week
+* Reorder patterns
+* Department categories
+* Cart position
+
+
+### Order Volume by Hour of Day
+
+```{r, echo=FALSE}
+# Line plot - Order patterns throughout day
+hourly_data <- instacart_sample %>%
+  count(order_hour_of_day) %>%
+  arrange(order_hour_of_day)
+
+plot_ly(hourly_data, x = ~order_hour_of_day, y = ~n, 
+        type = 'scatter', mode = 'lines+markers',
+        line = list(color = 'blue', width = 3),
+        marker = list(size = 8, color = 'blue'),
+        text = ~paste("Hour:", order_hour_of_day, "<br>Orders:", n),
+        hoverinfo = 'text') %>%
+  layout(title = "Order Volume by Hour of Day",
+         xaxis = list(title = "Hour of Day (0-23)"),
+         yaxis = list(title = "Number of Orders"))
+```
+
+
+### Reorder Rates by Department
+
+```{r, echo=FALSE}
+# Bar plot - Reorder rates by department
+dept_reorder <- instacart_sample %>%
+  group_by(department) %>%
+  summarise(reorder_rate = mean(reordered),
+            total_orders = n()) %>%
+  filter(total_orders >= 500) %>%  # Filter for sufficient data
+  arrange(desc(reorder_rate))
+
+plot_ly(dept_reorder, x = ~reorder_rate, y = ~fct_reorder(department, reorder_rate),
+        type = 'bar', orientation = 'h',
+        marker = list(color = 'green'),
+        text = ~paste("Department:", department, 
+                     "<br>Reorder Rate:", round(reorder_rate, 3)),
+        hoverinfo = 'text') %>%
+  layout(title = "Reorder Rates by Department",
+         xaxis = list(title = "Reorder Rate"),
+         yaxis = list(title = ""))
+```
+
+Column {data-width=350}
+-------------------------------------------------------------------------------------------------------------
+
+### Days Between Orders
+
+```{r, echo=FALSE}
+# Box plot - Days since prior order
+days_data <- instacart_sample %>%
+  filter(!is.na(days_since_prior_order))
+
+plot_ly(days_data, y = ~days_since_prior_order, 
+        type = 'box',
+        name = "Days Between Orders",
+        boxpoints = "outliers",
+        marker = list(color = 'orange'),
+        line = list(color = 'orange')) %>%
+  layout(title = "Distribution of Days Between Orders",
+         yaxis = list(title = "Days Since Prior Order"))
+```
+
+
+
+### Shopping Cart Patterns
+
+```{r, echo=FALSE}
+# Scatter plot - Cart position vs reordering
+cart_patterns <- instacart_sample %>%
+  group_by(add_to_cart_order) %>%
+  summarise(
+    reorder_rate = mean(reordered),
+    count = n()
+  ) %>%
+  filter(count >= 10)  # Only positions with sufficient data
+
+plot_ly(cart_patterns, x = ~add_to_cart_order, y = ~reorder_rate,
+        type = 'scatter', mode = 'markers',
+        size = ~count, sizes = c(5, 50),
+        marker = list(
+          opacity = 0.7, 
+          sizemode = 'diameter',
+          color = ~count, 
+          colorscale = 'Viridis',
+          colorbar = list(title = "Order Count")
+        ),
+        text = ~paste(
+          "Cart Position:", add_to_cart_order,
+          "<br>Reorder Rate:", round(reorder_rate, 3),
+          "<br>Orders:", count
+        ),
+        hoverinfo = 'text') %>%
+  layout(
+    title = "Reorder Rate by Cart Position",
+    xaxis = list(title = "Position in Cart"),
+    yaxis = list(title = "Reorder Rate")
+  )
+```
+
+
+
