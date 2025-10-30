@@ -28,7 +28,7 @@ instacart_sample <- instacart %>%
 ```
 
 Column {data-width=650}
--------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------
 ### About This Dashboard
 This dashboard explores shopping patterns from the Instacart Online Grocery Shopping Dataset.
 
@@ -88,8 +88,7 @@ plot_ly(dept_reorder, x = ~reorder_rate, y = ~fct_reorder(department, reorder_ra
 ```
 
 Column {data-width=350}
--------------------------------------------------------------------------------------------------------------
-
+-----------------------------------------------------------------------
 ### Days Between Orders
 
 ```{r, echo=FALSE}
